@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"="width=device-width, initial-scale=1.0">
+  <title>Eventino - Kreative Aktiviteter til Børn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Reset og basis-stilarter */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    :root {
+      --color-primary: #264653;
+      --color-secondary: #2A9D8F;
+      --color-accent: #F4A261;
+      --color-light: #FFFAF0;
+      --color-dark: #333;
+    }
+    
+    /* Navigation */
+    .navbar {
+      background-color: var(--color-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8em;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-menu li {
+      margin-left: 20px;
+    }
+    
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    
+    .nav-menu a:hover {
+      color: var(--color-accent);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(38, 70, 83, 0.8), rgba(38, 70, 83, 0.8)), url('IMG_5567.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    
+    .hero p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--color-accent);
+      color: #fff;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    
+    .btn:hover {
+      background: #e76f51;
+    }
+    
+    /* Section styles */
+    .section {
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .section-alt {
+      background-color: var(--color-light);
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5em;
+      color: var(--color-primary);
+      margin-bottom: 20px;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2em;
+      color: var(--color-secondary);
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* About section */
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      flex-wrap: wrap;
+    }
+    
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+      padding: 0 20px;
+    }
+    
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+    }
+    
+    .about-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Services section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .service-card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .service-content {
+      padding: 20px;
+    }
+    
+    .service-content h3 {
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+    
+    /* Gallery section */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 10px;
+      height: 250px;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    /* Testimonial section */
+    .testimonial {
+      background-color: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .testimonial p {
+      font-style: italic;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--color-secondary);
+    }
+    
+    /* Contact section */
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+      text-align: left;
+    }
+    
+    .contact-info h3 {
+      color: var(--color-primary);
+      margin-bottom: 20px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--color-primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 1.2em;
+    }
+    
+    .contact-text {
+      flex: 1;
+    }
+    
+    .contact-text h4 {
+      color: var(--color-secondary);
+      margin-bottom: 5px;
+    }
+    
+    .contact-text a {
+      color: var(--color-dark);
+      text-decoration: none;
+    }
+    
+    .contact-text a:hover {
+      color: var(--color-secondary);
+    }
+    
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .btn-submit {
+      background-color: var(--color-primary);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-submit:hover {
+      background-color: var(--color-secondary);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--color-primary);
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2em;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin-bottom: 30px;
+    }
+    
+    .footer-links li {
+      margin: 0 15px;
+    }
+    
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--color-accent);
+    }
+    
+    .social-links {
+      margin-bottom: 20px;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      color: white;
+      border-radius: 50%;
+      margin: 0 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--color-accent);
+    }
+    
+    .copyright {
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+      
+      .section-title {
+        font-size: 2em;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .about-image {
+        order: -1;
+        margin-bottom: 20px;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+      }
+      
+      .navbar .container {
+        flex-direction: column;
+      }
+      
+      .nav-menu {
+        margin-top: 15px;
+      }
+      
+      .nav-menu li:first-child {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">EVENTINO</a>
+      <ul class="nav-menu">
+        <li><a href="#home">Hjem</a></li>
+        <li><a href="#about">Om os</a></li>
+        <li><a href="#services">Aktiviteter</a></li>
+        <li><a href="#gallery">Galleri</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <h1>Kreative og Inspirerende Oplevelser til Børn</h1>
+      <p>Hos Eventino skaber vi magiske øjeblikke og mindeværdige oplevelser gennem kreative værksteder og aktiviteter specielt designet til børn.</p>
+      <a href="#contact" class="btn">Kontakt os nu</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">Om Eventino</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Eventino er specialiseret i at levere kreative og engagerende aktiviteter til børn ved alle typer af arrangementer. Vi tror på, at kreativitet og leg er afgørende for børns udvikling og trivsel.</p>
+          <p>Med vores mobile værksteder kan vi skabe en magisk kreativ zone overalt - hvad enten det er på et event, i et shopping center, på skoler eller til private arrangementer.</p>
+          <p>Vi leverer alt nødvendigt materiale, borde og professionelt personale, der skaber en tryg og inspirerende atmosfære, hvor børnenes kreativitet kan blomstre.</p>
+          <p>Med et bredt udvalg af aktiviteter, der spænder fra maleri og håndværk til sæsonbestemte aktiviteter som julepynt og påskedekorationer, har vi noget for enhver smag og aldersgruppe.</p>
+        </div>
+        <div class="about-image">
+          <img src="Perleværksted.jpg" alt="Eventino kreativt værksted">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <h2 class="section-title">Vores Aktiviteter</h2>
+      <p class="section-subtitle">Vi tilbyder forskellige kreative workshops og aktiviteter tilpasset børn i alle aldre. Alle priser dækker en varighed på op til 4 timer eller 200 deltagende børn. Vi sørger for alt nødvendigt materiale, borde og professionelt personale.</p>
+      
+      <h3 style="color: var(--color-accent); font-size: 1.8em; margin: 40px 0 20px;">Hele Året</h3>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="Pet_Rock.jpg" alt="Pet Rock Workshop">
+          <div class="service-content">
+            <h3>Pet Rock</h3>
+            <p>Lav en lille sten ven, med øjne og andre dekorationer</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <img src="Blyanter.jpg" alt="Foam Clay Blyanter">
+          <div class="service-content">
+            <h3>Foam Clay Blyanter</h3>
+            <p>Lav sjove og farverige blyanter med Foam Clay</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <img src="Blyantholder.jpg" alt="Foam Clay Blyantholder">
+          <div class="service-content">
+            <h3>Foam Clay Blyantholder</h3>
+            <p>Dekorer din egen blyantholder med Foam Clay</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Mallerværksted.jpg" alt="Malerværksted">
+          <div class="service-content">
+            <h3>Malerværksted</h3>
+            <p>Kreativitet med maling på små lærreder</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Perleplader.jpg" alt="Perleplader">
+          <div class="service-content">
+            <h3>Perleplader</h3>
+            <p>Lav flotte perleplader i sjove mønstre</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Glimmertatoteringer.jpg" alt="Glimmer Tatoveringer">
+          <div class="service-content">
+            <h3>Glimmer Tatoveringer</h3>
+            <p>Sjove og sikre tatoveringer med glimmer</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">4900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Krympeplast.jpg" alt="Krympeplast Workshop">
+          <div class="service-content">
+            <h3>Krympeplast</h3>
+            <p>Lav dine egne smykker og nøgleringe med krympeplast</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Perleværksted.jpg" alt="Perleværksted">
+          <div class="service-content">
+            <h3>Perleværksted</h3>
+            <p>Kreativt værksted med perler til smykker og pynt</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Mini_Lagkager.jpg" alt="Mini Lagkager Workshop">
+          <div class="service-content">
+            <h3>Mini Lagkager</h3>
+            <p>Dekorer dine egne små lagkager med flot pynt</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Karseværksted.png" alt="Karseværksted">
+          <div class="service-content">
+            <h3>Karseværksted</h3>
+            <p>Lav din egen karsemand eller karsedyr</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color: #E63946; font-size: 1.8em; margin: 40px 0 20px;">Jul</h3>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="Julesokker.jpg" alt="Dekorer Julesokker">
+          <div class="service-content">
+            <h3>Dekorer Julesokker</h3>
+            <p>Børn dekorerer deres egne julesokker med flotte farver og mønstre</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Julelys.jpg" alt="Lav Julelys">
+          <div class="service-content">
+            <h3>Lav Julelys</h3>
+            <p>Lav hyggelige julelys med kreative dekorationer</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Juleklip.jpg" alt="Juleklip">
+          <div class="service-content">
+            <h3>Juleklip</h3>
+            <p>Hyggeligt juleklip med traditionel julepynt</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Juledekoration.jpg" alt="Juledekoration">
+          <div class="service-content">
+            <h3>Juledekoration</h3>
+            <p>Lav en smuk juledekoration med grene, lys og pynt</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color: #9D4EDD; font-size: 1.8em; margin: 40px 0 20px;">Fastelavn</h3>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="Fastelavnsris.jpg" alt="Fastelavnsris Workshop">
+          <div class="service-content">
+            <h3>Fastelavnsris Workshop</h3>
+            <p>Dekorer dit eget fastelavnsris med flotte pynt og farverige bånd</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Masker.jpg" alt="Lav Fastelavnsmasker">
+          <div class="service-content">
+            <h3>Lav Fastelavnsmasker</h3>
+            <p>Kreativ workshop hvor børnene laver deres egne masker</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color: #FFC300; font-size: 1.8em; margin: 40px 0 20px;">Påske</h3>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="Gækkebreve.jpg" alt="Gækkebreve">
+          <div class="service-content">
+            <h3>Gækkebreve</h3>
+            <p>Lav sjove og kreative gækkebreve til påske</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="Paaskeæg.jpg" alt="Påskeæg Workshop">
+          <div class="service-content">
+            <h3>Påskeæg Workshop</h3>
+            <p>Dekorer farverige påskeæg med unikke mønstre og materialer</p>
+            <p style="color: var(--color-secondary); font-weight: bold; margin-top: 10px;">5900 kr.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <h2 class="section-title">Galleri</h2>
+      <p class="section-subtitle">Få et indblik i de kreative oplevelser, vi skaber for børn til forskellige arrangementer.</p>
+      
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="Mallerværksted.jpg" alt="Malerværksted">
+        </div>
+        <div class="gallery-item">
+          <img src="Pet_Rock.jpg" alt="Pet Rock aktivitet">
+        </div>
+        <div class="gallery-item">
+          <img src="Perleplader.jpg" alt="Børn laver perleplader">
+        </div>
+        <div class="gallery-item">
+          <img src="Julesokker.jpg" alt="Julesokke dekoration">
+        </div>
+        <div class="gallery-item">
+          <img src="Masker.jpg" alt="Fastelavnsmasker">
+        </div>
+        <div class="gallery-item">
+          <img src="Paaskeæg.jpg" alt="Påskeæg dekoration">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Kontakt Os</h2>
+      <p class="section-subtitle">Lad os hjælpe med at skabe uforglemmelige kreative oplevelser til dit næste arrangement.</p>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Kontaktinformation</h3>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Navn</h4>
+              <p>Danni Dahl</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Telefon</h4>
+              <p><a href="tel:+4530360086">30 36 00 86</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p><a href="mailto:Kontakt@Eventino.dk">Kontakt@Eventino.dk</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Dækningsområde</h4>
+              <p>Vi dækker hele Danmark</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="name">Navn</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" class="form-control" id="phone">
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Besked</label>
+              <textarea class="form-control" id="message" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">Send Besked</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">EVENTINO</div>
+      
+      <ul class="footer-links">
+        <li><a href="#home">Hjem</a></li>
+        <li><a href="#about">Om os</a></li>
+        <li><a href="#services">Aktiviteter</a></li>
+        <li><a href="#gallery">Galleri</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+      
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      
+      <div class="copyright">
+        &copy; 2023 Eventino. Alle rettigheder forbeholdes.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
