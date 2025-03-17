@@ -1,0 +1,142 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage{shadowtext}
+\usepackage{hyperref}
+
+\geometry{margin=1in}
+
+% Farver
+\definecolor{titel}{HTML}{264653}
+\definecolor{subtitel}{HTML}{2A9D8F}
+\definecolor{heltaar}{HTML}{F4A261}
+\definecolor{jul}{HTML}{E63946}
+\definecolor{fastelavn}{HTML}{9D4EDD}
+\definecolor{paaske}{HTML}{FFC300}
+\definecolor{baggrund}{HTML}{FFFAF0}
+
+% Sidehoved
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textsf{\textbf{Eventiono Katalog 2025}}}
+\rhead{\textsf{\thepage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{titel}\leaders\hrule height \headrulewidth\hfill}}
+
+% Titler styling
+\titleformat{\section}[block]
+  {\normalfont\Huge\bfseries\color{titel}\centering}
+  {}
+  {0em}
+  {\rule{\textwidth}{1pt}\\[0.5em]}
+
+% Aktivitet miljø
+\newcommand{\aktivitet}[5]{%
+\vspace{1.5em}
+\begin{tcolorbox}[colback=baggrund, colframe=#5!80!black, boxrule=0.5mm, arc=8mm, enhanced, drop shadow={black!50!gray}]
+\begin{minipage}[c]{0.35\textwidth}
+    \includegraphics[width=\textwidth,height=4cm,keepaspectratio]{#1}
+\end{minipage}%
+\hfill%
+\begin{minipage}[c]{0.6\textwidth}
+    {\Large \textsf{\textcolor{titel}{\textbf{#2}}}}\\[0.5em]
+    {\normalsize #3}\\[1em]
+    {\textbf{\textsf{\textcolor{subtitel}{Pris:}}} \textsf{\textbf{#4}}}
+\end{minipage}%
+\end{tcolorbox}
+}
+
+\begin{document}
+
+% Forside
+\begin{titlepage}
+    \centering
+    \begin{tcolorbox}[colback=titel!10, colframe=titel, boxrule=1mm, arc=10mm, width=\textwidth, center title]
+    {\shadowoffset{3pt}\shadowcolor{gray!50}\Huge\textsf{\textbf{Produktkatalog 2025}}}
+    \end{tcolorbox}
+    
+    \vspace{1.5cm}
+    
+    {\LARGE\textit{\textsf{\textcolor{subtitel}{Sjove, kreative og inspirerende aktiviteter til børn}}}}
+    
+    \vfill
+    
+    {\large \href{mailto:kontakt@eventino.dk}{Kontakt@Eventino.dk}}
+\end{titlepage}
+
+\begin{center}
+    {\Huge \textsf{\textcolor{titel}{\textbf{Aktiviteter til Børn}}}}\\[1em]
+    \begin{minipage}{0.85\textwidth}
+        {\large Vi tilbyder et bredt udvalg af sjove og kreative aktiviteter specielt udviklet til børn. Alle priser dækker en varighed på op til 4 timer eller 200 deltagende børn. Vi sørger for alt nødvendigt materiale, borde og engageret professionelt personale, der skaber en tryg og inspirerende oplevelse for børnene.\\[1em]
+        Har du ønsker til aktiviteter, som ikke fremgår af kataloget, er du altid velkommen til at kontakte os.}
+    \end{minipage}
+\end{center}
+
+\vspace{2em}
+
+% Hele året
+\section*{Hele Året}
+\aktivitet{Pet_Rock.jpg}{Pet Rock Workshop}{Lav en lille sten ven med øjne og andre sjove dekorationer. En kreativ aktivitet der stimulerer fantasien.}{5900 kr.}{heltaar}
+
+\aktivitet{Blyanter.jpg}{Foam Clay Blyanter}{Lav sjove og farverige blyanter med Foam Clay. Børnene kan skabe deres helt egne personlige skriveredskaber.}{5900 kr.}{heltaar}
+
+\aktivitet{Blyantholder.jpg}{Foam Clay Blyantholder}{Dekorer din egen blyantholder med Foam Clay. En praktisk og kreativ aktivitet der giver et personligt præg.}{5900 kr.}{heltaar}
+
+\aktivitet{Mallerværksted.jpg}{Malerværksted}{Kreativt værksted hvor børnene kan male på små lærreder. En klassisk kunstnerisk aktivitet der udvikler kreativiteten.}{5900 kr.}{heltaar}
+
+\aktivitet{Perleplader.jpg}{Perleplade Workshop}{Lav flotte perleplader i sjove mønstre og designs. En koncentrationsfremmende og hyggelig aktivitet.}{5900 kr.}{heltaar}
+
+\aktivitet{Glimmertatoteringer.jpg}{Glimmer Tatoveringer}{Sjove og sikre tatoveringer med glimmer. Populær aktivitet der skaber glæde og begejstring.}{4900 kr.}{heltaar}
+
+\aktivitet{Krympeplast.jpg}{Krympeplast Workshop}{Lav spændende smykker og nøgleringe med krympeplast. Se magien når plasten krymper i ovnen.}{5900 kr.}{heltaar}
+
+\aktivitet{Perleværksted.jpg}{Perleværksted}{Kreativt værksted med perler til smykker og pynt. Børnene kan lave deres egne unikke kreationer.}{5900 kr.}{heltaar}
+
+\aktivitet{Mini_Lagkager.jpg}{Mini Lagkager}{Dekorer små, søde lagkager med flot pynt og spiselige dekorationer. En lækkerbisken af en workshop.}{5900 kr.}{heltaar}
+
+\aktivitet{Karseværksted.png}{Karseværksted}{Lav din egen karsemand eller karsedyr. En grøn og lærerig aktivitet om planters vækst.}{5900 kr.}{heltaar}
+
+% Jul
+\section*{Jul}
+\aktivitet{Julesokker.jpg}{Julesokke Dekoration}{Børnene dekorerer deres egne julesokker med glimmer, palietter og andre festlige materialer.}{5900 kr.}{jul}
+
+\aktivitet{Julelys.jpg}{Julelys Workshop}{Lav hyggelige og personlige julelys med forskellige dekorative materialer.}{5900 kr.}{jul}
+
+\aktivitet{Juleklip.jpg}{Juleklip Workshop}{Traditionelt juleklip hvor børnene laver deres egen julepynt til træet eller vinduerne.}{5900 kr.}{jul}
+
+\aktivitet{Juledekoration.jpg}{Juledekoration}{Skab smukke juledekorationer med naturmaterialer, lys og pynt.}{5900 kr.}{jul}
+
+% Fastelavn
+\section*{Fastelavn}
+\aktivitet{Fastelavnsris.jpg}{Fastelavnsris Workshop}{Dekorer dit eget fastelavnsris med farverige bånd, blomster og pynt.}{5900 kr.}{fastelavn}
+
+\aktivitet{Masker.jpg}{Fastelavnsmasker}{Design og dekorer din egen fastelavnsmaske med glimmer, fjer og andre materialer.}{5900 kr.}{fastelavn}
+
+% Påske
+\section*{Påske}
+\aktivitet{Gækkebreve.jpg}{Gækkebrev Workshop}{Lav kreative gækkebreve med papirklip og fine vers.}{5900 kr.}{paaske}
+
+\aktivitet{Paaskeæg.jpg}{Påskeæg Dekoration}{Pynt påskeæg med forskellige teknikker og materialer.}{5900 kr.}{paaske}
+
+\vspace{2em}
+
+\begin{center}
+    \begin{tcolorbox}[colback=titel!10, colframe=titel, width=0.8\textwidth]
+    \centering
+    {\Large \textsf{\textbf{Kontakt os for booking og mere information}}}\\[0.5em]
+    {\large \textsf{Telefon: 30 36 00 86}}\\
+    {\large \textsf{Email: \href{mailto:kontakt@eventino.dk}{Kontakt@Eventino.dk}}}
+    \end{tcolorbox}
+\end{center}
+
+\end{document}
