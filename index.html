@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5654NHVW');</script>
+  <!-- End Google Tag Manager -->
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGR9K3D6J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NQGR9K3D6J');
+</script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eventino - Kreative Aktiviteter til Børn</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5654NHVW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
       <a href="#" class="logo">EVENTINO</a>
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
       <ul class="nav-menu">
         <li><a href="#home">Hjem</a></li>
         <li><a href="#about">Om os</a></li>
@@ -27,7 +54,7 @@
   <section class="hero" id="home">
     <div class="container hero-content">
       <h1>Kreative Workshops der tiltrækker børnefamilier</h1>
-      <p>Vi skaber engagerende aktiviteter, som oplevelseshungrende børnefamilier elsker. Perfekt til at øge kundetilfredshed og besøgende.</p>
+      <p>Vi udvikler engagerende aktiviteter, der tiltrækker børnefamilier og skaber mindeværdige oplevelser. En effektiv måde at øge kundetilfredshed og tiltrække flere besøgende.</p>
       <a href="#contact" class="btn">Book en workshop</a>
     </div>
   </section>
@@ -53,7 +80,7 @@
   <!-- Services Section -->
   <section class="section section-alt" id="services">
     <div class="container">
-      <h2 class="section-title">Vores Aktiviteter</h2>
+      <h2 class="section-title">Vores Workshops</h2>
       <p class="section-subtitle">Alle workshops inkluderer komplet afholdelse med instruktører, borde og materialer i en varighed op til 4 timer eller 200 børn. Priser er opgivet ekskl. moms</p>
       
       <h3 class="season-header year-round">Hele Året</h3>
@@ -131,6 +158,15 @@
         </div>
 
         <div class="service-card">
+          <img src="images/Fyrfadslys.webp" alt="Fyrfadslys">
+          <div class="service-content">
+            <h3>Fyrfadslys</h3>
+            <p>Børn dekorerer deres egen lysestager med silkepapir</p>
+            <p class="service-price">5900 kr.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
           <img src="images/Mini_Lagkager.jpg" alt="Mini Lagkager Workshop">
           <div class="service-content">
             <h3>Mini Lagkager</h3>
@@ -160,6 +196,14 @@
           <div class="service-content">
             <h3>Puslespil</h3>
             <p>Aktivitet hvor børn designer deres egne puslespil.</p>
+            <p class="service-price">5900 kr.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="images/Smykker.webp" alt="Puslespil">
+          <div class="service-content">
+            <h3>Smykke værksted</h3>
+            <p>Her kan de komme og lave en flot halskæde eller øreing</p>
             <p class="service-price">5900 kr.</p>
           </div>
         </div>
@@ -468,6 +512,28 @@
           });
         }
       });
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.navbar')) {
+        navMenu.classList.remove('active');
+      }
     });
   </script>
 </body>

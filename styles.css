@@ -525,8 +525,14 @@ footer .footer-content {
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2em;
+    padding: 0 10px;
   }
   
+  .hero p {
+    font-size: 1.1em;
+    padding: 0 15px;
+  }
+
   .section-title {
     font-size: 2em;
   }
@@ -540,19 +546,81 @@ footer .footer-content {
     margin-bottom: 20px;
   }
   
-  .contact-container {
-    flex-direction: column;
-  }
-  
   .navbar .container {
     flex-direction: column;
+    padding: 10px;
   }
   
   .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
     margin-top: 15px;
+    display: none;
   }
   
-  .nav-menu li:first-child {
-    margin-left: 0;
+  .nav-menu.active {
+    display: flex;
+  }
+  
+  .nav-menu li {
+    margin: 10px 0;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+  }
+
+  .footer-links li {
+    margin: 5px 0;
+  }
+
+  .social-links {
+    margin: 20px 0;
+  }
+
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+}
+
+/* Add hamburger menu styles */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
   }
 }
